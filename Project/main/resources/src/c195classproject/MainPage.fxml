@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.c195classproject.MainPageController">
+   <children>
+      <Pane layoutX="5.0" layoutY="4.0" prefHeight="710.0" prefWidth="1014.0">
+         <children>
+            <Pane layoutX="8.0" layoutY="11.0" prefHeight="88.0" prefWidth="998.0">
+               <children>
+                  <RadioButton fx:id="viewCustomer" layoutX="222.0" layoutY="33.0" mnemonicParsing="false" onAction="#viewCustomerActive" text="%view_customers">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="appOrCust" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="viewApp" layoutX="14.0" layoutY="33.0" mnemonicParsing="false" onAction="#viewAppActive" selected="true" text="%view_appointments" toggleGroup="$appOrCust">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="viewByMonth" layoutX="594.0" layoutY="31.0" mnemonicParsing="false" onAction="#viewByMonth" prefHeight="26.0" prefWidth="167.0" selected="true" text="%viewByMonth">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="monthOrWeek" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="viewByWeek" layoutX="594.0" layoutY="56.0" mnemonicParsing="false" onAction="#viewByWeek" prefHeight="26.0" prefWidth="167.0" text="%viewByWeek" toggleGroup="$monthOrWeek">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </RadioButton>
+                  <DatePicker fx:id="calendar" layoutX="777.0" layoutY="31.0" onAction="#calendarAction" prefHeight="25.0" prefWidth="203.0" />
+                  <TableView fx:id="tableCustomer" layoutX="5.0" layoutY="87.0" prefHeight="556.0" prefWidth="990.0">
+                    <columns>
+                      <TableColumn fx:id="col1" prefWidth="84.0" text="%customerID" />
+                        <TableColumn fx:id="col2" prefWidth="105.5999755859375" text="%customerName" />
+                        <TableColumn fx:id="col3" prefWidth="114.4000244140625" text="%address" />
+                        <TableColumn fx:id="col4" prefWidth="79.199951171875" text="%postalCode" />
+                        <TableColumn fx:id="col5" prefWidth="105.599853515625" text="%phone" />
+                        <TableColumn fx:id="col6" prefWidth="128.800048828125" text="%createDate" />
+                        <TableColumn fx:id="col7" prefWidth="67.199951171875" text="%createBy" />
+                        <TableColumn fx:id="col8" prefWidth="137.60009765625" text="%lastUpdate" />
+                        <TableColumn fx:id="col9" prefWidth="101.5999755859375" text="%lastUpdateBy" />
+                        <TableColumn fx:id="col10" prefWidth="74.4000244140625" text="%divisionID" />
+                    </columns>
+                  </TableView>
+                  <RadioButton fx:id="viewAll" layoutX="594.0" layoutY="7.0" mnemonicParsing="false" onAction="#viewAll" selected="true" text="%viewAll" toggleGroup="$monthOrWeek">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </Pane>
+            <TableView fx:id="table" disable="true" layoutX="12.0" layoutY="99.0" opacity="0.0" prefHeight="556.0" prefWidth="990.0">
+              <columns>
+                <TableColumn id="appIDCol" fx:id="appID" prefWidth="110.39990234375" text="%Appointment_ID" />
+                <TableColumn fx:id="title" prefWidth="69.5999755859375" text="%Title" />
+                  <TableColumn fx:id="description" minWidth="0.0" prefWidth="110.39990234375" text="%description" />
+                  <TableColumn fx:id="location" prefWidth="101.60009765625" text="%Location" />
+                  <TableColumn fx:id="contact" prefWidth="60.0" text="%Contact" />
+                  <TableColumn fx:id="type" prefWidth="122.400146484375" text="%Type" />
+                  <TableColumn fx:id="startDate" prefWidth="135.199951171875" text="%Start_Date_and_Time" />
+                  <TableColumn fx:id="endDate" prefWidth="146.39990234375" text="%End_Date_and_Time" />
+                  <TableColumn fx:id="customerID" prefWidth="70.4000244140625" text="%Customer_ID" />
+                  <TableColumn fx:id="userID" prefWidth="61.5999755859375" text="%User_ID" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="666.0" prefHeight="48.0" prefWidth="998.0">
+         <children>
+            <Button fx:id="reports" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" onAction="#reportClick" prefHeight="25.0" prefWidth="120.0" text="%reports">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="add" layoutX="309.0" layoutY="6.0" mnemonicParsing="false" onAction="#addClick" prefWidth="120.0" text="%add">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="update" layoutX="439.0" layoutY="6.0" mnemonicParsing="false" onAction="#updateClick" prefHeight="36.0" prefWidth="120.0" text="%update">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="delete" layoutX="569.0" layoutY="6.0" mnemonicParsing="false" onAction="#deleteClick" prefWidth="120.0" text="%delete">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="logout" layoutX="864.0" layoutY="6.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="%logout">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
